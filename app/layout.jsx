@@ -10,7 +10,6 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"], 
   weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
   variable: "--font-jetbrains-mono",
-
 });
 
 export const metadata = {
@@ -23,12 +22,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={jetbrainsMono.variable}>
         <Header />
-       <StairTransition />
-          <PageTransition>
-            {children}
-          </PageTransition>
-        </body>
-
+        <StairTransition />
+        <PageTransition>
+          {children}
+        </PageTransition>
+      </body>
     </html>
   );
 }

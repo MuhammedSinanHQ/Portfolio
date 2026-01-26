@@ -9,7 +9,7 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: "1rem", // same idea as his "15px"
+      padding: "1rem", 
       screens: {
         "2xl": "1400px",
       },
@@ -21,10 +21,10 @@ module.exports = {
       xl: "1200px",
     },
     fontFamily: {
-      primary: "var(--font-jetbrainsMono)",
+      // FIXED: Changed "jetbrainsMono" to "jetbrains-mono" to match layout.jsx
+      primary: "var(--font-jetbrains-mono)",
     },
     extend: {
-
       colors: {
         primary: "#1c1c22",
         accent: {
@@ -48,5 +48,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
