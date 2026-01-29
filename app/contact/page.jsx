@@ -50,7 +50,9 @@ const Contact = () => {
             <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
               <h3 className="text-4xl text-accent">Let's work together</h3>
               <p className="text-white/60">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt sit illo esse commodi.
+                Need help with machine learning, computer vision, dashboards, or MLOps?<br />
+                I work with individuals and teams to design practical, scalable data solutions.<br />
+                Fill out the form below and let&apos;s discuss your project.
               </p>
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
