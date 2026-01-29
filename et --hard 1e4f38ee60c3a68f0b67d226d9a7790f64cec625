@@ -1,0 +1,43 @@
+[33m9466082[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Merge pull request #8 from MuhammedSinanHQ/copilot/add-futuristic-animations-effects
+[33md35f3c6[m[33m ([m[1;31morigin/copilot/add-futuristic-animations-effects[m[33m)[m Address code review feedback and improve code quality
+[33m71dc4bd[m Fix linting issues in components
+[33mbea3ac3[m Enhance all existing components with futuristic animations
+[33md20e747[m Create new animation components
+[33m337f58b[m Add CSS animations and enhance Tailwind config
+[33m5e60d5a[m Initial plan
+[33m1e4f38e[m Merge pull request #7 from MuhammedSinanHQ/copilot/fix-about-me-grid-layout
+[33m242e2e9[m[33m ([m[1;31morigin/copilot/fix-about-me-grid-layout[m[33m)[m Use break-words instead of break-all for better readability
+[33m57915bd[m Fix email field overlap with break-all instead of truncate
+[33m5ddca69[m Initial plan
+[33mee89458[m Merge pull request #6 from MuhammedSinanHQ/copilot/fix-email-field-overlap
+[33m97a19dc[m[33m ([m[1;31morigin/copilot/fix-email-field-overlap[m[33m)[m Initial plan
+[33mfd689fc[m Merge pull request #5 from MuhammedSinanHQ/copilot/fix-email-overlap-issue
+[33mdc53f56[m[33m ([m[1;31morigin/copilot/fix-email-overlap-issue[m[33m)[m Initial plan
+[33meb8b4fe[m Merge pull request #4 from MuhammedSinanHQ/copilot/fix-about-me-section-issues-again
+[33mfeefdad[m[33m ([m[1;31morigin/copilot/fix-about-me-section-issues-again[m[33m)[m Improve text wrapping by using break-words instead of break-all
+[33mba8983e[m Fix Resume page layout and update languages
+[33md8ace13[m Initial plan
+[33mec6e0e9[m Merge pull request #3 from MuhammedSinanHQ/copilot/fix-about-me-section-issues
+[33m60bc49e[m Merge pull request #2 from MuhammedSinanHQ/copilot/fix-github-actions-workflow
+[33mbe3f8ae[m[33m ([m[1;31morigin/copilot/fix-about-me-section-issues[m[33m)[m Initial plan
+[33mf8def7b[m Merge pull request #1 from MuhammedSinanHQ/copilot/complete-portfolio-website
+[33m1b61b2d[m[33m ([m[1;31morigin/copilot/fix-github-actions-workflow[m[33m)[m Replace Deno workflow with Node.js/ESLint workflow
+[33m199abdf[m Initial plan
+[33m2a544cc[m[33m ([m[1;31morigin/copilot/complete-portfolio-website[m[33m)[m Add comprehensive deployment documentation and configuration
+[33m1517964[m Update font family configuration to use array format with fallbacks
+[33m0559f59[m Add visual quick reference for VS Code setup
+[33maa5052f[m Add quick start guide for VS Code setup
+[33mf4122bd[m Add comprehensive VS Code setup and documentation
+[33m1be4b2a[m Fix icon imports in Resume page - use available icons
+[33ma7e11fe[m Implement portfolio pages: Home, Social, Resume, Work, Contact, Hire Me
+[33m4cb041c[m Initial plan
+[33mf5e814b[m 4th day
+[33m54a37eb[m 4th day
+[33mea3b62d[m 4th day
+[33m9758a2a[m Create deno.yml
+[33m7dc8960[m Create npm-publish-github-packages.yml
+[33m045c318[m third day
+[33maff939f[m Refines UI styles and integrates tailwindcss-animate
+[33m5e11f55[m second day
+[33m3141573[m started
+[33m697537f[m Initial commit from Create Next App
