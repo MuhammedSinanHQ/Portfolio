@@ -16,13 +16,12 @@ import {
   SiMysql,
   SiMongodb,
   SiOpencv,
-  SiPowerbi,
   SiJupyter,
-  SiVisualstudiocode,
 } from "react-icons/si";
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 /* ----------------------------- ABOUT DATA ----------------------------- */
 
@@ -77,21 +76,20 @@ const skills = {
   description:
     "Comprehensive toolkit for Data Science, Machine Learning, and MLOps development.",
   skillsList: [
-    { icon: <FaPython />, name: "Python" },
-    { icon: <SiTensorflow />, name: "TensorFlow" },
-    { icon: <SiPytorch />, name: "PyTorch" },
-    { icon: <SiOpencv />, name: "OpenCV" },
-    { icon: <SiPowerbi />, name: "Power BI" },
-    { icon: <SiTableau />, name: "Tableau" },
-    { icon: <SiStreamlit />, name: "Streamlit" },
-    { icon: <SiMysql />, name: "MySQL" },
-    { icon: <SiMongodb />, name: "MongoDB" },
-    { icon: <SiPostgresql />, name: "PostgreSQL" },
-    { icon: <FaDocker />, name: "Docker" },
-    { icon: <FaGit />, name: "Git" },
-    { icon: <FaGithub />, name: "GitHub" },
-    { icon: <SiVisualstudiocode />, name: "VS Code" },
-    { icon: <SiJupyter />, name: "Jupyter Notebook" },
+    { icon: <FaPython />, name: "Python", type: "icon" },
+    { icon: <SiTensorflow />, name: "TensorFlow", type: "icon" },
+    { icon: <SiPytorch />, name: "PyTorch", type: "icon" },
+    { icon: <SiOpencv />, name: "OpenCV", type: "icon" },
+    { icon: "/assets/skills/Power-bi.svg", name: "Power BI", type: "svg" },
+    { icon: <SiTableau />, name: "Tableau", type: "icon" },
+    { icon: <SiStreamlit />, name: "Streamlit", type: "icon" },
+    { icon: <SiMysql />, name: "MySQL", type: "icon" },
+    { icon: <SiMongodb />, name: "MongoDB", type: "icon" },
+    { icon: <SiPostgresql />, name: "PostgreSQL", type: "icon" },
+    { icon: <FaDocker />, name: "Docker", type: "icon" },
+    { icon: <FaGit />, name: "Git", type: "icon" },
+    { icon: <FaGithub />, name: "GitHub", type: "icon" },
+    { icon: <SiJupyter />, name: "Jupyter Notebook", type: "icon" },
   ],
 };
 
@@ -170,9 +168,20 @@ const Resume = () => {
                     {skills.skillsList.map((skill, index) => (
                       <li key={index}>
                         <div className="w-full h-[150px] bg-[#232329] rounded-xl flex flex-col justify-center items-center group hover:bg-accent transition-all duration-300">
-                          <div className="text-6xl group-hover:text-primary transition-all duration-300">
-                            {skill.icon}
-                          </div>
+                          {skill.type === "svg" ? (
+                            <div className="relative w-16 h-16">
+                              <Image
+                                src={skill.icon}
+                                alt={skill.name}
+                                fill
+                                className="object-contain"
+                              />
+                            </div>
+                          ) : (
+                            <div className="text-6xl group-hover:text-primary transition-all duration-300">
+                              {skill.icon}
+                            </div>
+                          )}
                           <p className="mt-4 text-white/60 group-hover:text-primary transition-all duration-300">
                             {skill.name}
                           </p>
