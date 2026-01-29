@@ -21,8 +21,7 @@ module.exports = {
       xl: "1200px",
     },
     fontFamily: {
-      // FIXED: Changed "jetbrainsMono" to "jetbrains-mono" to match layout.jsx
-      primary: "var(--font-jetbrains-mono)",
+      primary: ["var(--font-jetbrains-mono)", "JetBrains Mono", "monospace"],
     },
     extend: {
       colors: {
