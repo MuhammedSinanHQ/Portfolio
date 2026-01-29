@@ -20,7 +20,7 @@ const Home = () => {
           <div className="text-center xl:text-left order-2 xl:order-none">
             <span className="text-xl">‎ Data Scientist</span>
             <h1 className="h1 mb-6">
-              Hello I'm <br /> <span className="text-accent neon-text">Muhammed Sinan</span>
+              Hello I&apos;m <br /> <span className="text-accent neon-text">Muhammed Sinan</span>
               </h1>
               <p className="max-w-[500px] mb-9 text-white/80">
                 I am dedicated to transforming raw data into actionable insights and I am

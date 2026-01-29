@@ -1,23 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
+// Generate particles outside component to avoid re-generation
+const generateParticles = () => {
+  return Array.from({ length: 50 }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: Math.random() * 3 + 1,
+    duration: Math.random() * 10 + 10,
+    delay: Math.random() * 5,
+  }));
+};
 
 const ParticleBackground = () => {
-  const [particles, setParticles] = useState([]);
-
-  useEffect(() => {
-    // Generate 50 particles with random positions
-    const particleArray = Array.from({ length: 50 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: Math.random() * 3 + 1,
-      duration: Math.random() * 10 + 10,
-      delay: Math.random() * 5,
-    }));
-    setParticles(particleArray);
-  }, []);
+  // Generate particles once using lazy initialization
+  const [particles] = useState(() => generateParticles());
 
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">

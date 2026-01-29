@@ -51,7 +51,7 @@ const Contact = () => {
             <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl relative overflow-hidden hover:shadow-[0_0_30px_rgba(0,255,153,0.2)] transition-all duration-500">
               {/* Glow effect border */}
               <div className="absolute inset-0 bg-gradient-to-r from-accent/20 via-accent/10 to-accent/20 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              <h3 className="text-4xl text-accent">Let's work together</h3>
+              <h3 className="text-4xl text-accent">Let&apos;s work together</h3>
               <p className="text-white/60">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt sit illo esse commodi.
               </p>
