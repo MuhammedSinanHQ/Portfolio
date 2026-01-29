@@ -208,7 +208,7 @@ const Resume = () => {
                         }`}
                       >
                         <span className="text-white/60 shrink-0">{item.fieldName}</span>
-                        <span className="text-xl break-all" title={item.fieldValue}>{item.fieldValue}</span>
+                        <span className="text-xl break-words">{item.fieldValue}</span>
                       </li>
                     ))}
                   </ul>
