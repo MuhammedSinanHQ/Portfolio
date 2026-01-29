@@ -23,3 +23,110 @@
  } 
 
 }
+
+/* Neon Glow Text Animation */
+@keyframes neon-pulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 5px #00ff99,
+      0 0 10px #00ff99,
+      0 0 20px #00ff99,
+      0 0 40px #00ff99,
+      0 0 80px #00ff99;
+  }
+  50% {
+    text-shadow: 
+      0 0 2px #00ff99,
+      0 0 5px #00ff99,
+      0 0 10px #00ff99,
+      0 0 20px #00ff99,
+      0 0 40px #00ff99;
+  }
+}
+
+.neon-text {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Cyber Grid Background */
+@keyframes grid-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 50px 50px; }
+}
+
+.cyber-grid {
+  background-image: 
+    linear-gradient(rgba(0, 255, 153, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 153, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: grid-move 4s linear infinite;
+}
+
+/* Glitch Effect */
+@keyframes glitch {
+  0%, 90%, 100% { transform: translate(0); }
+  91% { transform: translate(-2px, 2px); }
+  92% { transform: translate(2px, -2px); }
+  93% { transform: translate(-1px, 1px); }
+  94% { transform: translate(1px, -1px); }
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.3s ease infinite;
+}
+
+/* Scanning Line Effect */
+@keyframes scan {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+.scan-effect::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ff99, transparent);
+  animation: scan 3s linear infinite;
+}
+
+/* Gradient Border Animation */
+@keyframes gradient-rotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-border {
+  background: linear-gradient(90deg, #00ff99, #00e187, #00ff99, #00e187);
+  background-size: 300% 300%;
+  animation: gradient-rotate 3s ease infinite;
+}
+
+/* Holographic Effect */
+@keyframes hologram {
+  0%, 100% { 
+    opacity: 1;
+    filter: hue-rotate(0deg);
+  }
+  50% { 
+    opacity: 0.8;
+    filter: hue-rotate(30deg);
+  }
+}
+
+.holographic {
+  animation: hologram 5s ease-in-out infinite;
+}
