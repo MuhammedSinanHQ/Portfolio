@@ -113,9 +113,9 @@ const Photo = () => {
         </motion.svg>
 
         {/* Orbiting dots */}
-        {[0, 90, 180, 270].map((angle, index) => (
+        {[0, 90, 180, 270].map((angle) => (
           <motion.div
-            key={index}
+            key={`dot-${angle}`}
             className="absolute w-3 h-3 bg-accent rounded-full"
             style={{
               left: "50%",
@@ -128,13 +128,13 @@ const Photo = () => {
               duration: 10,
               repeat: Infinity,
               ease: "linear",
-              delay: index * 0.5,
+              delay: angle / 360 * 2,
             }}
           >
             <div 
               className="w-3 h-3 bg-accent rounded-full shadow-[0_0_10px_#00ff99]"
               style={{
-                transform: `translate(-50%, -50%) translateX(${index % 2 === 0 ? '125px' : '145px'}) translateY(-50%)`,
+                transform: `translate(-50%, -50%) translateX(${angle % 180 === 0 ? '125px' : '145px'})`,
               }}
             />
           </motion.div>

@@ -193,7 +193,7 @@ const Work = () => {
                           alt=""
                         />
                         {/* Shimmer effect overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/20 to-transparent -translate-x-[200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
                       </div>
                     </div>
                   </SwiperSlide>

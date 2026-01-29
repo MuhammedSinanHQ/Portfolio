@@ -126,8 +126,8 @@ const Resume = () => {
                     {education.description}
                   </p>
                   <div className="flex flex-col gap-6">
-                    {education.items.map((item, index) => (
-                      <ScrollReveal key={index} delay={index * 0.2}>
+                    {education.items.map((item) => (
+                      <ScrollReveal key={`${item.degree}-${item.institution}`} delay={education.items.indexOf(item) * 0.2}>
                         <div className="bg-[#232329] h-auto py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1 hover:bg-[#2a2a31] hover:shadow-[0_0_20px_rgba(0,255,153,0.2)] transition-all duration-300">
                         <span className="text-accent">{item.duration}</span>
                         <h3 className="text-xl max-w-[600px] min-h-[60px] text-center lg:text-left">
@@ -165,9 +165,9 @@ const Resume = () => {
                     </p>
                   </div>
                   <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
-                    {skills.skillsList.map((skill, index) => (
-                      <ScrollReveal key={index} delay={index * 0.1}>
-                        <li>
+                    {skills.skillsList.map((skill) => (
+                      <li key={skill.name}>
+                        <ScrollReveal delay={skills.skillsList.indexOf(skill) * 0.05}>
                           <div className="w-full h-[150px] bg-[#232329] rounded-xl flex flex-col justify-center items-center group hover:bg-accent transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,255,153,0.4)] hover:scale-105">
                           {skill.type === "svg" ? (
                             <div className="relative w-16 h-16">
@@ -187,8 +187,8 @@ const Resume = () => {
                             {skill.name}
                           </p>
                         </div>
+                        </ScrollReveal>
                       </li>
-                      </ScrollReveal>
                     ))}
                   </ul>
                 </div>

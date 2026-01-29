@@ -44,7 +44,7 @@ const TextReveal = ({ text, className = "" }) => {
       {words.map((word, index) => (
         <motion.span
           variants={child}
-          key={index}
+          key={`${word}-${index}`}
           className="inline-block mr-[0.25em]"
         >
           {word}

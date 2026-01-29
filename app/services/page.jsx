@@ -48,8 +48,8 @@ const Services = () => {
           }}
           className="grid grid-cols-1 md:grid-cols-2 gap-[60px]"
         >
-          {services.map((service, index) => (
-            <ScrollReveal key={index} delay={index * 0.2}>
+          {services.map((service) => (
+            <ScrollReveal key={service.num} delay={parseInt(service.num) * 0.1}>
               <GlowCard>
                 <div className="flex flex-col justify-center gap-6 group">
               {/* Top Row */}
