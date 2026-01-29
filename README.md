@@ -106,6 +106,36 @@ Portfolio/
 - **Icons:** React Icons
 - **Font:** JetBrains Mono
 
+## 🚀 Deployment
+
+### Quick Deploy to Vercel (Recommended)
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/MuhammedSinanHQ/Portfolio)
+
+Or follow these steps:
+
+1. **Push your code to GitHub** (if not already)
+2. **Go to [vercel.com](https://vercel.com)** and sign up
+3. **Import your repository** - Click "Add New..." → "Project"
+4. **Deploy** - Vercel auto-configures everything
+5. **Done!** Your site is live at `https://portfolio-[random].vercel.app`
+
+### Other Deployment Options
+
+- **Netlify:** See [DEPLOY_QUICK.md](DEPLOY_QUICK.md)
+- **Self-Hosted:** See [DEPLOYMENT.md](DEPLOYMENT.md) for Docker/VPS options
+
+### Deployment Documentation
+
+- 📖 **Quick Guide:** [DEPLOY_QUICK.md](DEPLOY_QUICK.md) - Get live in 5 minutes
+- 📚 **Complete Guide:** [DEPLOYMENT.md](DEPLOYMENT.md) - All deployment options, troubleshooting, and advanced setup
+
+## 📖 Additional Documentation
+
+- **VS Code Setup:** [VSCODE_SETUP.md](VSCODE_SETUP.md) - Detailed IDE configuration
+- **Quick Start:** [QUICKSTART.md](QUICKSTART.md) - Get running in 2 minutes
+- **Quick Reference:** [VS_CODE_INSTRUCTIONS.txt](VS_CODE_INSTRUCTIONS.txt) - Visual guide
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
