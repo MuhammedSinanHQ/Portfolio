@@ -206,7 +206,7 @@ const Resume = () => {
                         className="flex flex-col xl:flex-row items-center justify-center xl:justify-start gap-4"
                       >
                         <span className="text-white/60 whitespace-nowrap">{item.fieldName}</span>
-                        <span className="text-xl break-all xl:break-normal">{item.fieldValue}</span>
+                        <span className="text-xl break-words xl:break-normal">{item.fieldValue}</span>
                       </li>
                     ))}
                   </ul>
