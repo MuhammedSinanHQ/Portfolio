@@ -199,14 +199,16 @@ const Resume = () => {
                   <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                     {about.description}
                   </p>
-                  <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 gap-x-8 max-w-[700px] mx-auto xl:mx-0">
+                  <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 gap-x-8 max-w-[800px] mx-auto xl:mx-0">
                     {about.info.map((item, index) => (
                       <li
                         key={index}
-                        className="flex flex-col xl:flex-row items-center justify-center xl:justify-start gap-4"
+                        className={`flex items-center justify-center xl:justify-start gap-4 min-w-0 ${
+                          item.fieldName === "Email" ? "xl:col-span-2" : ""
+                        }`}
                       >
-                        <span className="text-white/60 whitespace-nowrap">{item.fieldName}</span>
-                        <span className="text-xl break-words xl:break-normal">{item.fieldValue}</span>
+                        <span className="text-white/60 shrink-0">{item.fieldName}</span>
+                        <span className="text-xl break-words">{item.fieldValue}</span>
                       </li>
                     ))}
                   </ul>
