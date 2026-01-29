@@ -6,18 +6,21 @@ import Social from "@/components/Social";
 import { hover } from "framer-motion";
 import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
+import ParticleBackground from "@/components/ParticleBackground";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const Home = () => {
   return (
-    <section className="h-full">
-      <div className="container mx-auto h-full">
+    <section className="h-full relative">
+      <ParticleBackground />
+      <div className="container mx-auto h-full relative z-10">
         <div className="flex flex-col xl:flex-row items-center justify-between 
         xl:pt-8 xl:pb-24">
           {/* text */}
           <div className="text-center xl:text-left order-2 xl:order-none">
             <span className="text-xl">‎ Data Scientist</span>
             <h1 className="h1 mb-6">
-              Hello I'm <br /> <span className="text-accent">Muhammed Sinan</span>
+              Hello I'm <br /> <span className="text-accent neon-text">Muhammed Sinan</span>
               </h1>
               <p className="max-w-[500px] mb-9 text-white/80">
                 I am dedicated to transforming raw data into actionable insights and I am
@@ -28,7 +31,7 @@ const Home = () => {
                 <a href="/assets/cv.pdf" download="Muhammed_Sinan_CV.pdf">
                   <Button variant="outline"
                   size="lg"
-                  className="uppercase flex items-center gap-2"
+                  className="uppercase flex items-center gap-2 hover:animate-pulse-glow"
                   >
                     <span>Download CV</span>
                     <FiDownload className="text-xl" />
@@ -38,7 +41,7 @@ const Home = () => {
                   <Social
                    containerStyles="flex gap-6"
                     iconStyles="w-9 h-9 border border-accent rounded-full flex justify-center items-center text-accent text-base hover:bg-accent hover:text-primary
-                    hover:text-primary hover:transition-all duration-500" />
+                    hover:text-primary hover:transition-all duration-500 hover:animate-scale-pulse" />
                   </div>
               </div>
             </div>
@@ -48,7 +51,9 @@ const Home = () => {
             </div>
         </div>
       </div>
-      <Stats />
+      <ScrollReveal delay={0.6}>
+        <Stats />
+      </ScrollReveal>
     </section>
   );
 };

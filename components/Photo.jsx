@@ -12,7 +12,7 @@ const Photo = () => {
       transition: {delay: 2, duration: 0.4, ease: "easeIn"},
       }}
       >
-        {/* image */}
+        {/* image with float animation */}
         <motion.div
          initial={{opacity: 0}}
          animate={{opacity: 1,
@@ -20,7 +20,7 @@ const Photo = () => {
       }}
         
         className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px]
-        mix-blend-lighten absolute"
+        mix-blend-lighten absolute animate-float"
         >
             <Image 
             src="/assets/photo1.png"
@@ -32,8 +32,35 @@ const Photo = () => {
               />
         </motion.div>
 
-        {/* circle */}
+        {/* Outer glow ring 1 */}
         <motion.svg className="w-[300px] xl:w-[506px] h-[300px] xl:h-[506px]"
+        fill="transparent"
+        viewBox="0 0 506 506"
+        xmlns="http://www.w3.org/2000/svg"
+        >
+          <motion.circle 
+            cx="253" 
+            cy="253"
+            r="252"
+            stroke="#00ff99"
+            strokeWidth="1"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            initial={{opacity: 0}}
+            animate={{
+              opacity: [0.3, 0.6, 0.3],
+              scale: [1, 1.02, 1],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+        </motion.svg>
+
+        {/* Main animated circle */}
+        <motion.svg className="w-[300px] xl:w-[506px] h-[300px] xl:h-[506px] absolute top-0 left-0"
         fill="transparent"
         viewBox="0 0 506 506"
         xmlns="http://www.w3.org/2000/svg"
@@ -57,6 +84,64 @@ const Photo = () => {
              }}
               />
         </motion.svg>
+
+        {/* Inner rotating circle */}
+        <motion.svg 
+          className="w-[300px] xl:w-[506px] h-[300px] xl:h-[506px] absolute top-0 left-0"
+          fill="transparent"
+          viewBox="0 0 506 506"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <motion.circle 
+            cx="253" 
+            cy="253"
+            r="240"
+            stroke="#00ff99"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeDasharray="10 20"
+            animate={{
+              rotate: [0, -360],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+        </motion.svg>
+
+        {/* Orbiting dots */}
+        {[0, 90, 180, 270].map((angle, index) => (
+          <motion.div
+            key={index}
+            className="absolute w-3 h-3 bg-accent rounded-full"
+            style={{
+              left: "50%",
+              top: "50%",
+            }}
+            animate={{
+              rotate: [angle, angle + 360],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: "linear",
+              delay: index * 0.5,
+            }}
+          >
+            <div 
+              className="w-3 h-3 bg-accent rounded-full shadow-[0_0_10px_#00ff99]"
+              style={{
+                transform: `translate(-50%, -50%) translateX(${index % 2 === 0 ? '125px' : '145px'}) translateY(-50%)`,
+              }}
+            />
+          </motion.div>
+        ))}
+
+        {/* Pulsing glow effect */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] xl:w-[500px] xl:h-[500px] bg-accent/5 rounded-full blur-3xl animate-pulse-glow" />
     </motion.div>
   </div>
   )  

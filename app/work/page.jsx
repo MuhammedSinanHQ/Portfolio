@@ -116,7 +116,7 @@ const Work = () => {
                 {project.num}
               </div>
               {/* project category */}
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize glitch-hover">
                 {project.category} project
               </h2>
               {/* project title */}
@@ -181,17 +181,19 @@ const Work = () => {
               {projects.map((project, index) => {
                 return (
                   <SwiperSlide key={index} className="w-full">
-                    <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
+                    <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20 overflow-hidden">
                       {/* overlay */}
-                      <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
+                      <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10 group-hover:bg-black/30 transition-all duration-500"></div>
                       {/* image */}
-                      <div className="relative w-full h-full">
+                      <div className="relative w-full h-full overflow-hidden">
                         <Image
                           src={project.image}
                           fill
-                          className="object-cover"
+                          className="object-cover group-hover:scale-110 transition-all duration-500"
                           alt=""
                         />
+                        {/* Shimmer effect overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-accent/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000" />
                       </div>
                     </div>
                   </SwiperSlide>

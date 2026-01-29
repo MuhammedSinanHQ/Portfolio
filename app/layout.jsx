@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "../components/Header";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
+import CursorFollower from "@/components/CursorFollower";
 
 const jetbrainsMono = JetBrains_Mono({ 
   subsets: ["latin"], 
@@ -20,7 +21,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={jetbrainsMono.variable}>
+      <body className={`${jetbrainsMono.variable} cyber-grid`}>
+        <CursorFollower />
         <Header />
         <StairTransition />
         <PageTransition>

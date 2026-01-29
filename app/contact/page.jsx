@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/select";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
+import MagneticButton from "@/components/MagneticButton";
 
 const info = [
   {
@@ -47,7 +48,9 @@ const Contact = () => {
         <div className="flex flex-col xl:flex-row gap-[30px]">
           {/* form */}
           <div className="xl:w-[54%] order-2 xl:order-none">
-            <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl">
+            <form className="flex flex-col gap-6 p-10 bg-[#27272c] rounded-xl relative overflow-hidden hover:shadow-[0_0_30px_rgba(0,255,153,0.2)] transition-all duration-500">
+              {/* Glow effect border */}
+              <div className="absolute inset-0 bg-gradient-to-r from-accent/20 via-accent/10 to-accent/20 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               <h3 className="text-4xl text-accent">Let's work together</h3>
               <p className="text-white/60">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt sit illo esse commodi.
@@ -80,9 +83,11 @@ const Contact = () => {
                 placeholder="Type your message here."
               />
               {/* btn */}
-              <Button size="md" className="max-w-40">
-                Send message
-              </Button>
+              <MagneticButton>
+                <Button size="md" className="max-w-40 hover:shadow-[0_0_20px_rgba(0,255,153,0.5)] transition-all duration-300">
+                  Send message
+                </Button>
+              </MagneticButton>
             </form>
           </div>
           {/* info */}

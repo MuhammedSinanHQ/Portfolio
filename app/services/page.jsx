@@ -2,6 +2,8 @@
 
 import { BsArrowDownRight } from "react-icons/bs";
 import { motion } from "framer-motion";
+import GlowCard from "@/components/GlowCard";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const services = [
   {
@@ -47,10 +49,9 @@ const Services = () => {
           className="grid grid-cols-1 md:grid-cols-2 gap-[60px]"
         >
           {services.map((service, index) => (
-            <div
-              key={index}
-              className="flex flex-col justify-center gap-6 group"
-            >
+            <ScrollReveal key={index} delay={index * 0.2}>
+              <GlowCard>
+                <div className="flex flex-col justify-center gap-6 group">
               {/* Top Row */}
               <div className="w-full flex justify-between items-center">
                 <div
@@ -86,6 +87,8 @@ const Services = () => {
               {/* Divider */}
               <div className="border-b border-white/20 w-full"></div>
             </div>
+              </GlowCard>
+            </ScrollReveal>
           ))}
         </motion.div>
       </div>
