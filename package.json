@@ -4,14 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma generate && next build",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "postinstall": "prisma generate"
+    "lint": "eslint"
   },
   "dependencies": {
-    "@prisma/adapter-pg": "^7.3.0",
-    "@prisma/client": "^7.3.0",
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-scroll-area": "^1.2.10",
     "@radix-ui/react-select": "^2.2.6",
@@ -23,8 +20,6 @@
     "framer-motion": "^12.29.0",
     "lucide-react": "^0.563.0",
     "next": "16.1.4",
-    "pg": "^8.16.3",
-    "prisma": "^7.3.0",
     "react": "19.2.3",
     "react-countup": "^6.5.3",
     "react-dom": "19.2.3",

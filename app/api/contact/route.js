@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
-import { prisma } from '@/lib/prisma';
 import { validateContactForm, sanitizeString } from '@/lib/validations';
 
 // Initialize Resend with API key
@@ -16,7 +15,7 @@ const SERVICE_LABELS = {
 
 /**
  * POST handler for contact form submissions
- * Validates, stores in database, and sends notification emails
+ * Validates input and sends notification emails via Resend
  */
 export async function POST(request) {
   try {
@@ -46,18 +45,6 @@ export async function POST(request) {
         { status: 400 }
       );
     }
-    
-    // Store message in database
-    const contactMessage = await prisma.contactMessage.create({
-      data: {
-        firstName: sanitizedData.firstName,
-        lastName: sanitizedData.lastName,
-        email: sanitizedData.email,
-        phone: sanitizedData.phone || null,
-        service: sanitizedData.service,
-        message: sanitizedData.message
-      }
-    });
     
     // Get service label for emails
     const serviceLabel = SERVICE_LABELS[sanitizedData.service] || sanitizedData.service;
@@ -184,16 +171,14 @@ export async function POST(request) {
         html: confirmationEmailHtml
       });
     } catch (emailError) {
-      // Log email error but don't fail the request since message is already saved
+      // Log email error but don't fail the request
       console.error('Failed to send emails:', emailError);
-      // Still return success since the message was saved to database
     }
     
     return NextResponse.json(
       { 
         success: true, 
-        message: 'Your message has been sent successfully! I\'ll get back to you soon.',
-        id: contactMessage.id
+        message: 'Your message has been sent successfully! I\'ll get back to you soon.'
       },
       { status: 201 }
     );
