@@ -16,6 +16,15 @@ import {
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 
+const CONTACT_EMAIL = "realmuhammedsinan@gmail.com";
+
+const SERVICE_LABELS = {
+  ml: "Machine Learning Solutions",
+  viz: "Data Visualization & BI Dashboards",
+  mlops: "MLOps Solutions",
+  db: "Database Design & SQL Development",
+};
+
 const info = [
   {
     icon: <FaPhoneAlt />,
@@ -25,7 +34,7 @@ const info = [
   {
     icon: <FaEnvelope />,
     title: "Email",
-    description: "realmuhammedsinan@gmail.com",
+    description: CONTACT_EMAIL,
   },
   {
     icon: <FaMapMarkerAlt />,
@@ -45,16 +54,11 @@ const Contact = () => {
     message: "",
   });
 
-  // UI state
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
-  const [statusMessage, setStatusMessage] = useState("");
   const [fieldErrors, setFieldErrors] = useState({});
 
   // Handle input changes
   const handleInputChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
-    // Clear field error when user starts typing
     if (fieldErrors[field]) {
       setFieldErrors(prev => {
         const newErrors = { ...prev };
@@ -103,63 +107,27 @@ const Contact = () => {
     return errors;
   };
 
-  // Handle form submission
-  const handleSubmit = async (e) => {
+  // Handle form submission — opens mailto: in the user's email client
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Reset status
-    setSubmitStatus(null);
-    setStatusMessage("");
     setFieldErrors({});
 
-    // Validate form
     const errors = validateForm();
     if (Object.keys(errors).length > 0) {
       setFieldErrors(errors);
-      setSubmitStatus("error");
-      setStatusMessage("Please fix the errors below");
       return;
     }
 
-    // Submit form
-    setIsSubmitting(true);
+    const serviceLabel = SERVICE_LABELS[formData.service] || formData.service;
+    const subject = encodeURIComponent(
+      `Portfolio Inquiry: ${serviceLabel} — ${formData.firstName} ${formData.lastName}`
+    );
+    const body = encodeURIComponent(
+      `Hi Muhammed,\n\nName: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}${formData.phone ? `\nPhone: ${formData.phone}` : ""}\nService: ${serviceLabel}\n\n${formData.message}\n`
+    );
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        setSubmitStatus("success");
-        setStatusMessage(data.message);
-        // Reset form
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          service: "",
-          message: "",
-        });
-      } else {
-        setSubmitStatus("error");
-        setStatusMessage(data.message || "Something went wrong. Please try again.");
-        if (data.errors) {
-          setFieldErrors(data.errors);
-        }
-      }
-    } catch (error) {
-      setSubmitStatus("error");
-      setStatusMessage("Network error. Please check your connection and try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
   };
 
   return (
@@ -183,18 +151,6 @@ const Contact = () => {
                 Fill out the form below and let&apos;s discuss your project.
               </p>
 
-              {/* Status messages */}
-              {submitStatus === "success" && (
-                <div className="p-4 rounded-md bg-green-500/10 border border-green-500/50">
-                  <p className="text-green-500 text-sm">{statusMessage}</p>
-                </div>
-              )}
-              {submitStatus === "error" && (
-                <div className="p-4 rounded-md bg-red-500/10 border border-red-500/50">
-                  <p className="text-red-500 text-sm">{statusMessage}</p>
-                </div>
-              )}
-
               {/* input */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -203,7 +159,6 @@ const Contact = () => {
                     placeholder="First name"
                     value={formData.firstName}
                     onChange={(e) => handleInputChange("firstName", e.target.value)}
-                    disabled={isSubmitting}
                     className={fieldErrors.firstName ? "border-red-500" : ""}
                   />
                   {fieldErrors.firstName && (
@@ -216,7 +171,6 @@ const Contact = () => {
                     placeholder="Last name"
                     value={formData.lastName}
                     onChange={(e) => handleInputChange("lastName", e.target.value)}
-                    disabled={isSubmitting}
                     className={fieldErrors.lastName ? "border-red-500" : ""}
                   />
                   {fieldErrors.lastName && (
@@ -229,7 +183,6 @@ const Contact = () => {
                     placeholder="Email address"
                     value={formData.email}
                     onChange={(e) => handleInputChange("email", e.target.value)}
-                    disabled={isSubmitting}
                     className={fieldErrors.email ? "border-red-500" : ""}
                   />
                   {fieldErrors.email && (
@@ -242,7 +195,6 @@ const Contact = () => {
                     placeholder="Phone number"
                     value={formData.phone}
                     onChange={(e) => handleInputChange("phone", e.target.value)}
-                    disabled={isSubmitting}
                     className={fieldErrors.phone ? "border-red-500" : ""}
                   />
                   {fieldErrors.phone && (
@@ -256,7 +208,6 @@ const Contact = () => {
                 <Select
                   value={formData.service}
                   onValueChange={(value) => handleInputChange("service", value)}
-                  disabled={isSubmitting}
                 >
                   <SelectTrigger className={`w-full ${fieldErrors.service ? "border-red-500" : ""}`}>
                     <SelectValue placeholder="Select a service" />
@@ -283,7 +234,6 @@ const Contact = () => {
                   placeholder="Type your message here."
                   value={formData.message}
                   onChange={(e) => handleInputChange("message", e.target.value)}
-                  disabled={isSubmitting}
                 />
                 {fieldErrors.message && (
                   <p className="text-red-500 text-xs mt-1">{fieldErrors.message}</p>
@@ -291,39 +241,8 @@ const Contact = () => {
               </div>
 
               {/* btn */}
-              <Button
-                type="submit"
-                size="md"
-                className="max-w-40"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? (
-                  <span className="flex items-center gap-2">
-                    <svg
-                      className="animate-spin h-4 w-4"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      ></circle>
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                      ></path>
-                    </svg>
-                    Sending…
-                  </span>
-                ) : (
-                  "Send message"
-                )}
+              <Button type="submit" size="md" className="max-w-40">
+                Send message
               </Button>
             </form>
           </div>
