@@ -20,15 +20,15 @@ const Photo = () => {
       }}
         
         className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px]
-        mix-blend-lighten absolute"
+        absolute rounded-full overflow-hidden"
         >
             <Image 
-            src="/assets/photo1.png"
+            src="/assets/3d-character.png"
              priority 
              quality={100}
               fill
-            alt=""
-             className="object-contain"
+            alt="Muhammed Sinan"
+             className="object-cover object-top"
               />
         </motion.div>
 
